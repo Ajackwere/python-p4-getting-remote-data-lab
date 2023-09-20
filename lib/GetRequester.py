@@ -1,13 +1,20 @@
 import requests
 import json
 
+
 class GetRequester:
 
     def __init__(self, url):
         self.url = url
 
     def get_response_body(self):
-        pass
+        URL = 'https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json'
+        response = requests.get(URL)
+        return response.content
 
     def load_json(self):
-        pass
+        # name_list = []
+        data = json.loads(self.get_response_body())
+        # for name in data:
+        #     name_list.append(name["name"])
+        return data
